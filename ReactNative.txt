@@ -1,0 +1,3606 @@
+                                        React Native
+.....................................................................................
+
+What is React Native?
+
+1.React Native is js lib for building native mobile apps 
+2.React Native combines the best parts of native development with React, a best-in-class  JavaScript library for building user interfaces.
+
+Mobile App development:
+
+ Mobile apps are built using mobile platforms and os.
+
+Mobile platforms:
+1.Android
+2.Ios
+
+Mobile devices are acting front end devices, user interfaces communicates back end services.
+
+Dev:
+ 1.user interface developer/front end developer
+ 2.back end developer
+ 3.full stack developer.
+
+Front end developer who dev apps for  front devices.
+
+Dev generally build apps for desktops:
+  Standalone desktop apps
+  Browser based apps- javascript,html,css - react,angular,vue.....
+
+Mobile /Tab apps:
+ Dev builds apps for android platform using java , kotlin pl.
+ in iOS development, you use Swift or Objective-C.
+
+Types of mobile Apps:
+.....................
+
+1.Native Mobile
+2.Web apps
+3.Hybrid apps
+
+1.Native Mobile
+   Mobile apps are built by using native platform languages- java / Swift.
+2.Web apps
+   Apps built for browsers -Mobile browsers
+3.Hybrid  apps
+   built apps using javascript but it wont run inside browser, runs inside mobile using container(WebView).
+
+
+Hybrid apps:
+
+ Application built using javascript,css,html,looks like native apps.
+
+Why Hybrid Apps?
+
+-incase native apps, we need to maintain two code base for both platform.
+
+Why not to build one single portable app for all platforms?
+
+ That is birth of hybrid apps.
+
+Hybrids apps can be built using existing web tech- js,css,html.
+Js is simple dom language, how to access platform services such as contacts,networks,storage..
+- a lib was created -cordova , based on cordova adobe started building a framework on top of the cordova , called phoneGap.
+
+How to build mobile native apps in portable way using same javascript technology without html and css?
+
+......................................................................................................
+			   That is birth of React Native.
+....................................................................................
+React Native Architecture
+
+React native applications are written using react(js) core principles
+ -Component
+ -Props
+ -State
+ -Event Handling
+ -hooks
+ -life cycle events
+
+Every react native apps are simple javascript code.
+
+In React Native, there is no webview concept. React native never run inside browser.
+
+ReactNative code base is classified into two category
+
+1.User Interface
+2.Application logic
+
+In Normal react js, User interface is written using HTML language, application logic is written using plain js(react js using state,events,props)...
+
+In React Native, User interface is written using "Mobile Elements", application logic is written using plain js(react js using state,events,props)...
+
+
+UI Mark Up code for React native:
+
+React native does not use html language to build ui elements.
+
+React Native provides a high level ui components already written, so we can use those
+components only.Why?
+
+ We are building portable application either for android or ios.
+So we need generic concept for both  platforms. 
+For that React native provides a generic components for both platforms.
+
+What is it? What is happening during compilation?
+
+Source code is converted into another source code - Compilation.
+Another code is platform specific code. android code or ios code.
+if i wirte ui components, ui components will be converted to platform spefic components.
+javascript code will be emitted as it is-app code.
+
+How react native apps are executed?  Execution Model:
+.....................................................
+
+All views are executed by platform runtimes eg: android by art.
+All javascript is executed by Hermes Js engine.
+https://hermesengine.dev/
+.............................................................................................
+			 How to create React Native Project
+..............................................................................................
+There are two ways to create React Native Project.
+
+1.Using React native community project
+
+ If you are already familiar with mobile development, you may want to use React Native CLI.
+ It requires Xcode or Android Studio to get started. If you already have one of these tools installed, you should be able to get up and running within a few minutes. If they are not installed, you should expect to spend about an hour installing and configuring them.
+
+Open source, you dont need to use any copyrights.
+It offers only limitted features like basic Userinterface components like Button,View,List,Image.
+if you want to communicate with native platform services like camera,location,contacts, React Native core team has not provided any apis or compoents.
+You have to depend on community only...
+
+YOu can select platform services via react native community web site
+
+-Community -https://reactnative.directory/
+
+2.Using Expo Framework
+
+Expo Work flow:
+...............
+What is expo?
+
+ Expo is a framework and a platform for universal React applications. It is a set of tools and services built around React Native and native platforms that help you develop, build, deploy, and quickly iterate on iOS, Android, and web apps from the same JavaScript/TypeScript codebase.
+
+..............................................................................................
+Project Setup:
+
+.....................................................................................
+			ReactNative Project
+....................................................................................
+
+You can setup either using React Native cli or EXPO Cli.
+
+
+React Native cli:
+................
+
+Windows-Android:
+
+Requirements:
+
+Node js,
+React Native command line interface,
+JDK,
+Android Studio
+
+https://reactnative.dev/docs/environment-setup?guide=native&os=windows&platform=android
+
+>npx @react-native-community/cli@latest init <ProjectName>
+
+When you create project and building project
+
+1.you should create project in powershell or bash shell with admin rights.
+
+
+npx @react-native-community/cli@latest init  MyReactNativeApp
+
+√ Downloading template
+√ Copying template
+√ Processing template
+√ Installing dependencies
+√ Initializing Git repository
+
+
+  Run instructions for Android:
+    • Have an Android emulator running (quickest way to get started), or a device connected.
+    • cd "G:\IBM\2024\Dec\ReactNative\native\MyReactNativeApp" && npx react-native run-android
+
+  Run instructions for Windows:
+    • See https://aka.ms/ReactNativeGuideWindows for the latest up-to-date instructions.
+
+How to run react native project either for android or ios
+
+Way 1
+npx react-native run-android 
+npx react-native run-ios - if your app is ios app
+
+Way 2
+npm run android
+npm run ios
+
+Way 3
+npm start
+ios - i
+android - a
+..........................................................................................
+				 Project Exploration
+...........................................................................................
+
+Any js application can be written using "typescript" as well.
+
+Typescript is programming language which extends the features of js, typescript is super set of js.
+
+What is drawback of js?
+ Type system.
+js is static typed language, means we cant enforce the type system like java, c,C++
+
+int a =10
+a="hello" - compile time error.
+
+let a =10
+a="hello" - no compile time error.
+
+What if i want strong typing in js? 
+  That is brith of typescript.
+
+Typescript is strongly typed programming language, which was created on the top of core ES 6.
+
+if you want strong strong typing in your js apps,you can write type script code...
+
+typescript cant be executed directly on any js runtime, so we have to compile into plain js.
+
+Hello.ts -->compile--if any compile error-fix it-- Hello.js ---Run
+
+React Native cli project by default is enabled with typescript integration.
+  
+Component Extension:
+
+App.jsx -  Js based React
+App.tsx - Ts based React 
+
+
+Files:
+
+tsconfig.json
+   Typescript compiler configuration
+
+package.json
+
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "lint": "eslint .",
+    "start": "react-native start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "react": "18.3.1",
+    "react-native": "0.76.5"
+  },
+
+metro.config.js
+const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
+
+const config = {};
+
+module.exports = mergeConfig(getDefaultConfig(__dirname), config);
+...........................................................................................
+app.json
+ This file is used to supply name of the application and display name which is shown as a lable when we move app to device or emulator
+
+{
+  "name": "MyReactNativeApp",
+  "displayName": "MyReactNativeApp"
+}
+
+babel.config.js
+  This is compiler configuration file
+module.exports = {
+  presets: ['module:@react-native/babel-preset'],
+};
+............................................................................................
+			 Application Entry File
+.............................................................................................
+
+index.js
+
+import {AppRegistry} from 'react-native';
+import App from './App';
+import {name as appName} from './app.json';
+
+
+//JS Entry Point to React Native app
+AppRegistry.registerComponent(appName, () => App);
+
+App.tsx or App.jsx
+  Root Component 
+
+
+Folders:
+........
+node_modules
+   Contains libs and framework code
+.bundle 
+   contains bundled executable code
+
+Andorid
+
+IOS
+
+..............................................................................................
+			  Getting started with Coding
+.............................................................................................
+
+React Native Applicaiton is pure react application, so we follow all react features like components,props,state,listeners,hooks etc...
+
+React Native does not support HTML as markup.
+
+React Native is built around built in React Native Elements called components
+
+React Native apps are collection of components(From react native core,third party components,expo components).
+
+Core Components and APIs
+........................
+Basic Components
+User Interface
+List Views
+Android-specific
+iOS-specific
+Others
+
+Basic Components:
+ Text,View,Image,TextInput,StyleSheet,ScrollView etc...
+
+User Interface Components
+ Button,Switch
+
+ListViews:
+ FlatList
+ SectionList
+
+
+src/App.jsx
+import { Text, View } from "react-native"
+
+function App() {
+    return <View>
+         <Text>Hello React Native!</Text>
+    </View>
+}
+export default App
+.............................................................................................
+			 React core features in React Native
+.............................................................................................
+
+1.Component composition.
+
+src/components/profile/Profile.jsx
+
+import { Text, View } from "react-native"
+
+const Profile = props => {
+    return <View>
+        <Text>Profile</Text>
+    </View>
+}
+export { Profile };
+
+src/App.jsx
+import { View } from "react-native"
+import { Profile } from "./components/profile/Profile"
+
+function App() {
+    return <View>
+         <Profile/>
+    </View>
+}
+export default App
+
+props:
+......
+
+src/App.jsx
+import { View } from "react-native"
+import { Profile } from "./components/profile/Profile"
+
+function App() {
+
+    return <View>
+        <Profile data={{ id: 1, name: 'Subramanian Murugan', status:true }} />
+    </View>
+}
+export default App
+
+src/components/profile/Profile.jsx
+import { Text, View } from "react-native"
+
+const Profile = props => {
+    console.log(props)
+    const { id, name, status } = props.data
+    return <View>
+        <Text>Profile</Text>
+        <Text>Id : {id}</Text>
+        <Text>Name : {name}</Text>
+        <Text>Status :{status ? "Available" : "UnAvailable"}</Text>
+    </View>
+}
+export { Profile };
+
+............................................................................................
+
+State,Hooks:
+...........
+
+src/counter/Counter.jsx
+import { useState } from "react"
+import { Button, Text } from "react-native"
+
+
+const Counter = props => {
+    const [value, setValue] = useState(0)
+    return <>
+        <Text> Counter : {value}</Text>
+        <Button onPress={() => {
+            setValue(value + 1)
+        }} title="+" />
+        <Text></Text>
+        <Button onPress={() => {
+            setValue(value - 1)
+        }} title="-" />
+    </>
+}
+export { Counter }
+
+import { View } from "react-native"
+import { Counter } from "./components/counter/Counter"
+
+function App() {
+
+    return <View style={{ marginLeft: 50, marginTop:50, padding: 50 }}>
+        <Counter/>
+    </View>
+}
+export default App
+...........................................................................................
+
+Immerjs, Objects,Hooks:
+.......................
+
+npm install immer
+
+src/components/review/Review.jsx
+import { produce } from "immer"
+import { useState } from "react"
+import { Button, Text } from "react-native"
+
+const Review = props => {
+    const [value, setValue] = useState({ increment: 0, decrement: 0 })
+    return <>
+        <Text> Like : {value.increment} Dislike: {value.decrement}</Text>
+        {/* <Button onPress={() => {
+            setValue({ ...value, increment: value.increment + 1 })
+        }} title="Like" />
+        <Text></Text>
+        <Button onPress={() => {
+            setValue({ ...value, decrement: value.decrement + 1 })
+        }} title="Dislike" /> */}
+        <Button onPress={() => {
+            setValue(produce(value, draft => {
+                draft.decrement += 1
+            }))
+        }} title="Like" />
+        <Text></Text>
+        <Button onPress={() => {
+            setValue(produce(value, draft => {
+                draft.decrement += 1
+            }))
+        }} title="Dislike" />
+    </>
+}
+export { Review }
+...
+
+src/App.jsx
+import { View } from "react-native"
+import { Review } from "./components/review/Review"
+
+function App() {
+
+    return <View style={{ marginLeft: 50, marginTop:50, padding: 50 }}>
+        <Review/>
+    </View>
+}
+export default App
+..............................................................................................
+				Styling
+..............................................................................................
+
+Since React Native is portable application  or platform independant, so we need common design language to design User interface.
+
+React Native uses "CSS" as common language for both IOS and Android.
+
+CSS is web styling language , how to use that language?
+
+CSS can be used in two ways
+
+1.Using .css extension in web
+
+#container {
+  margin:0
+  background-color:'pink'
+}
+<div class="container">
+</div>
+
+2.Using javascript via code in web
+
+<div id="container">
+
+</div>
+document.getElelementById("container").style.margin =0
+
+In web : React and css:
+........................
+
+Using css language directly:
+
+function App(){ 
+  return <div className="container">
+	  
+    <div>
+}
+
+Using css via javascript (inline)
+.................................
+
+function App(){ 
+  return <div style={}>
+	  
+    <div>
+}
+const styles = {
+  backgroundColor:'pink'
+  margin:10
+}
+https://www.w3schools.com/jsref/dom_obj_style.asp
+
+React Native and Style:
+
+  React native supports js style of writting styles
+
+After React Native code compilation, which converts platform specific styling.....
+...................................................................................
+			StyleSheet - Component
+..................................................................................
+
+A StyleSheet is an abstraction similar to CSS StyleSheets
+
+How to declare style?
+
+StyleSheet object has method called "create" method
+
+StyleSheet.create({
+ styleProperty: propvalue,
+ stylePropery:{
+    styleProp:propValue
+ }
+});
+
+StyleSheet must follow css javascript property rules..
+....
+
+import { StyleSheet, Text, View } from "react-native";
+
+function App() {
+    return <View style={styles.box}>
+        <Text style={styles.label}>Hello</Text>
+        <Text style={styles.label}>Hello</Text>
+        <Text style={styles.label}>Hello</Text>
+        <Text style={styles.label}>Hello</Text>
+        <Text style={{ color: 'blue' }}>Hello</Text>
+    </View>
+
+}
+
+export const styles = StyleSheet.create({
+    box: {
+        backgroundColor: 'pink',
+        height: 900
+    },
+    label: {
+        color: 'red'
+    }
+})
+export default App;
+..............................................................................................
+		User interface design using  Flex Box -Layouts
+.............................................................................................
+Height and Width:
+................
+ How any ui element(graphical elements) are reprsented in computers?
+
+Any element is represented as "Rectangle box".
+
+if it is box which has some basic properties
+1.height
+2.width
+3.space values
+  3.1.margins-space allocated outside box
+  3.2.padding-space allocated inside box.
+
+A Component's height and width determine its size on the screen.
+
+Every element has default width and height.
+
+Width of the element is width of the container element by default.
+Container element is element which contains other elements
+In browser we start with div as root container, in react native we use "View"
+
+height of the element is height of the element itself by default.
+
+
+In Browser width and height is measured in the pixels or in %.
+There are two ways you can give measures
+
+=>fixed  -  50px
+=>fluid - responsive 50%
+
+React Native and Fixed Dimensions:
+..................................
+
+=>The general way to set the dimensions of a component is by adding a fixed width and hight to style.
+=>All dimensions in react native is unitless and represent density-independent pixels.
+
+eg:
+import { Text, View } from "react-native";
+
+// Fixed Width
+
+function App() {
+
+    return <View>
+        <View style={{
+            width: 50,
+            height: 50,
+            backgroundColor: 'blue'
+        }} />
+        <View style={{
+            width: 100,
+            height: 100,
+            backgroundColor: 'skyblue'
+        }} />
+        <View style={{
+            width: 150,
+            height: 150,
+            backgroundColor: 'red'
+
+        }} />
+    </View>
+}
+export default App;
+
+...................................................................................
+Percentage Dimensions:
+
+ It is similar to responsive web design
+
+=>The parent dimenstions are required to calulate % based width for child element.
+=>The drawback of this measurements we need to take care of manual calculation.
+
+...................................................................................
+Percentage Dimensions:
+
+ It is similar to responsive web design
+
+=>The parent dimenstions are required to calulate % based width for child element.
+=>The drawback of this measurements we need to take care of manual calculation.
+
+Eg:
+import { View } from "react-native";
+
+const App = () => {
+    return <View style={{ width: '100%', height: '100%', backgroundColor: 'pink' }}>
+        {/* Child elements */}
+        <View style={{ height: '15%', backgroundColor: 'red' }} />
+        <View style={{ height: '35%', width: '66%', backgroundColor: 'skyblue' }} />
+        <View style={{ height: '50%', width: '33%', backgroundColor: 'steelblue' }} />
+    </View>
+}
+export default App;
+
+...................................................................................
+				Layouts Design using Flex box
+....................................................................................
+
+CSS supports multiple layout methodology.
+
+1.fixedwith layout.
+   =>float,position properties are used to position elements on the screen.
+
+2.Responsive web layouts
+   =>the layout is adjusted based on the screen resolution and size using percentage      pattern
+
+3.Grids layout
+  =>The  layout is highly responsive but 
+  =>CSS Grid Layout is a two-dimensional layout system for the web.
+  =>It lets you lay content out in rows and columns. 
+
+4.Flexbox layout
+  Flexbox is a one-dimensional layout method for arranging items in rows or columns
+  Items flex (expand) to fill additional space or shrink to fit into smaller spaces. 
+
+				Flex box layout
+...................................................................................
+React Native supports flex box layout by default..
+
+
+Core Concepts of FlexBox:
+........................
+
+Axis:
+  Flex box organizies the content either in main axis(x axis) or cross axis(y axis).
+
+Main Axis:
+.........
+The main axis is the axis running in the direction the flex items are laid out in (for example, as a row across the page, or a column down the page.)
+The start and end of this axis are called the main start and main end.
+
+Cross axis:
+...........
+The cross axis is the axis running perpendicular to the direction the flex items are laid out in.
+The start and end of this axis are called the cross start and cross end
+
+Flex ITem:
+.........
+=>The items laid out as flexible boxes inside the flex container are called flex items
+
+Flex Container:
+...............
+=>in order to start flex box layout we must have flex container.
+
+Space Allocation:
+.................
+  Flex will define how your flex items are going to "fill" over the availble space along your main axis. 
+  Space will be divided according to each element's flex property..
+
+flex:1 for Container:
+....................
+ Generally flex container will have value always 1. meaning that it calculates the screen width and height automatically.
+  flex :1 in container means the whole width and height of the screen, let says my screen width is 120px and height is 150px then these values are calculated automatically.
+
+<View style={{flex:1}}>
+  <View/>
+
+</View>
+How to activate the flex layout?
+  Flex layout is activated inside every react native element by default
+
+Flex values and Flex Items:
+.........
+<View style={{ flex: 1 }}>
+        {/* Flex items:children */}
+        <View style={{flex:1,backgroundColor:'red'}} />
+        <View style={{flex:2,backgroundColor:'yellow'}}/>
+        <View style={{flex:3,backgroundColor:'blue'}} />
+</View>
+
+Here flex:1 in the container is eq to 100% of screen width and height.
+lets say the screen width is 120px then screen width is calculated automatically
+
+The total flex container space is "divided among child(flex items)"
+
+Calculation
+
+flex 1 + flex 2 + flex 3 =Total flex space 
+1+2+3=6
+
+box1 which takes 1/6
+box2 which takes 2/6
+box3 which takes 3/6
+
+eg:
+import { StyleSheet, View } from "react-native";
+
+const App = () => {
+    return <View style={styles.container}>
+        <View style={{ flex: 1, backgroundColor: 'red' }} />
+        <View style={{ flex: 2, backgroundColor: 'yellow' }} />
+        <View style={{ flex: 2, backgroundColor: 'blue' }} />
+        <View style={{ flex: 3, backgroundColor: 'green' }} />
+    </View>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'pink'
+    }
+})
+..............................................................................................
+				Nested Container
+.............................................................................................
+import { StyleSheet, View } from "react-native";
+
+const App = () => {
+    // Flex Container
+    return <View style={styles.container}>
+        {/* Flex items:Children */}
+        <View style={{ flex: 1, backgroundColor: 'red' }} />
+        <View style={{ flex: 2, backgroundColor: 'pink' }} />
+        <View style={{ flex: 3, backgroundColor: 'blue', padding:10}} >
+            <View style={{ flex: 1, backgroundColor: 'white', marginBottom:5 }}  />
+            <View style={{ flex: 1, backgroundColor: 'pink', marginBottom:5 }}  />
+            <View style={{ flex: 1, backgroundColor: 'pink', marginBottom:5 }}  />
+            <View style={{ flex: 2, backgroundColor: 'yellow' }} />
+        </View>
+    </View>
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'pink'
+    }
+})
+
+
+export default App;
+
+.....................................................................................
+			                  Flex direction Properties
+....................................................................................
+
+flexDirection property controls the direction in which the children(flex items) are laid out within child element.
+
+flex direction has values:
+
+1.column:
+     Align childrens top to bottom which is default.
+
+2.row:
+    Align childrens left to right
+
+3.column-reverse:
+    Align childrens from the bottom to top.
+
+4.row-reverse:
+   Align childrens right to left.
+
+Column:
+.......
+ Column is default direction property.
+
+import { StyleSheet, View } from "react-native";
+
+const App = () => {
+    return <View style={styles.container}>
+        <View style={{ width: 50, height: 50, backgroundColor: 'red' }} />
+        <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+        <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+    </View>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        padding:50,
+        // flexDirection:'column',
+        // flexDirection:'column-reverse',
+        // flexDirection:'row',
+        flexDirection:'row-reverse',
+        backgroundColor: 'pink'
+    }
+})
+....................................................
+			           Aligning Child elements(Flex Items)
+...................................................................................................................................................
+
+In order to align flex items within container we have properties
+
+1.Justify content
+2.Align items
+3.Align self
+4.Align Content
+5.Flex wrap
+..............................................................................................
+Justify content:
+  Align flex items within the main axis(x axis) of their container.
+
+Flex Direction says that how to organize either row or column
+
+justifyContent: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly'
+
+
+Flex Direction: row,column,row-reverse,column-reverse + flex-start
+
+
+
+import { StyleSheet, View } from "react-native";
+
+const App = () => {
+    return <View style={styles.container}>
+        <View style={{ width: 50, height: 50, backgroundColor: 'red' }} />
+        <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+        <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+    </View>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        padding: 50,
+        flexDirection: 'row',
+        // flexDirection:'column-reverse',
+        // flexDirection:'row',
+        // flexDirection:'row-reverse',
+        // justifyContent:'flex-start',
+        // justifyContent: 'flex-end',
+        // justifyContent: 'center',
+        justifyContent: 'space-between',
+        // justifyContent: 'space-around',
+        // justifyContent: 'space-evenly',
+
+        backgroundColor: 'pink'
+    }
+})
+
+Align items:
+...........
+
+Align Items describes how to align children along with cross axis(y) of the container.
+It is similar to JustifyContent but instead of applying to the main axis, alignItems applies to the cross axis.
+
+AlignItems: 'stretch' | 'flex-start',|'flex-end' | 'center'| 'baseline'
+
+stretch:
+ It is default value , Stretch children of a container to match the "height" of the container's cross axis
+
+Flex Direction: row,column,row-reverse,column-reverse + stretch.
+
+..................................................................................
+			Flex wrap
+..................................................................................\
+if more childrens beyond container size, it starts overflow, in order avoid overflow
+meaning that you want to lay elements within container... we can use flex wrap.
+
+import { StyleSheet, View, Text } from "react-native";
+
+const App = () => {
+    return <View style={styles.container}>
+        <Text style={styles.headerStyle}>Flex wrap</Text>
+        <View style={styles.elementsContainer}>
+            <View style={{ width: 50, height: 50, backgroundColor: 'red' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+
+            <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+
+            <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+
+
+        </ View>
+    </View>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1
+    },
+    headerStyle: {
+        fontSize: 29,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        marginBottom: 24,
+        color: 'blue'
+    },
+    elementsContainer: {
+        flex: 1,
+        backgroundColor: 'black',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        marginBottom: 24
+    }
+
+})
+....................................................................................
+				Gap
+....................................................................................
+
+How to allocate space among elements?
+
+ Flex gap
+ =>Column gap
+ =>Row gap				
+
+
+import { StyleSheet, View, Text } from "react-native";
+
+const App = () => {
+    return <View style={styles.container}>
+        <Text style={styles.headerStyle}>Flex wrap</Text>
+        <View style={styles.elementsContainer}>
+            <View style={{ width: 50, height: 50, backgroundColor: 'red' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+
+            <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+
+            <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+
+
+        </ View>
+    </View>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1
+    },
+    headerStyle: {
+        fontSize: 29,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        marginBottom: 24,
+        color: 'blue'
+    },
+    elementsContainer: {
+        flex: 1,
+        backgroundColor: 'black',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        rowGap: 10,
+        columnGap: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 24
+    }
+})
+.......................................................................................
+															Calculator Using layouts
+........................................................................................................									
+State Variables:
+
+input: Holds the expression entered by the user (e.g., 7+8*2).
+
+result: Displays the evaluated result of the expression.
+
+
+Layout:
+
+Display Section:
+
+Shows the current input and the result.
+
+Positioned at the top with a dark background.
+
+Buttons Section:
+ Organized using a 5x4 grid for the buttons.
+ Each row is created with Flexbox for proper alignment.
+
+Button Handling:
+
+Buttons like numbers and operators append their value to the input.
+
+The = button evaluates the expression using eval and updates result.
+
+The C button clears the input and result.
+
+Styling:
+
+Flexbox ensures responsive layouts.
+Buttons have consistent spacing, rounded corners, and a dynamic height.
+The = button is highlighted for prominence.
+
+
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+
+
+export default function App() {
+    //to get input
+    const [input, setInput] = useState('');
+    //to show output
+    const [result, setResult] = useState('');
+
+    const handlePress = (value) => {
+        if (value === '=') {
+            try {
+                // Evaluate the expression
+                setResult(eval(input).toString());
+            } catch (error) {
+                setResult('Error');
+            }
+        } else if (value === 'C') {
+            setInput('');
+            setResult('');
+        } else {
+            // append with previous values
+            setInput((prev) => prev + value);
+        }
+    };
+
+    return <View style={styles.container}>
+        {/* Display */}
+        <View style={styles.display}>
+            <Text style={styles.inputText}>{input}</Text>
+            <Text style={styles.resultText}>{result}</Text>
+        </View>
+        {/* Buttons */}
+        <View style={styles.buttonsContainer}>
+            {[
+                ['C', '(', ')', '/'],
+                ['7', '8', '9', '*'],
+                ['4', '5', '6', '-'],
+                ['1', '2', '3', '+'],
+                ['0', '.', '=', '%'],
+            ].map((row, rowIndex) => (
+                <View style={styles.row} key={rowIndex}>
+                    {row.map((button) => (
+                        <TouchableOpacity
+                            key={button}
+                            style={[styles.button, button === '=' && styles.equalButton]}
+                            onPress={() => handlePress(button)}
+                        >
+                            <Text
+                                style={[
+                                    styles.buttonText,
+                                    button === '=' && styles.equalButtonText,
+                                ]}
+                            >
+                                {button}
+                            </Text>
+                        </TouchableOpacity>
+                    ))}
+                </View>
+            ))}
+        </View>
+    </View>
+}
+export const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#282c34',
+    },
+    display: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'flex-end',
+        backgroundColor: '#1c1e22',
+        padding: 20,
+    },
+    inputText: {
+        fontSize: 36,
+        color: '#fff',
+        marginBottom: 10,
+    },
+    resultText: {
+        fontSize: 24,
+        color: '#a9a9a9',
+    },
+    buttonsContainer: {
+        flex: 2,
+        backgroundColor: '#000',
+        padding: 10,
+    },
+    row: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    button: {
+        flex: 1,
+        margin: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#444',
+        borderRadius: 8,
+        height: '80%', // Maintain height consistency
+    },
+    buttonText: {
+        fontSize: 24,
+        color: '#fff',
+    },
+    equalButton: {
+        backgroundColor: '#f39c12',
+    },
+    equalButtonText: {
+        fontWeight: 'bold',
+    },
+});
+..............................................................................................
+			   Redux  Integration
+..............................................................................................
+
+
+npm install @reduxjs/toolkit
+npm install react-redux
+
+
+
+import { View, StyleSheet, Text, Button } from "react-native";
+import { configureStore, createSlice } from '@reduxjs/toolkit'
+import { Provider, useDispatch, useSelector } from 'react-redux'
+
+
+const initialState = {
+    like: 0,
+}
+export const ReviewSlice = createSlice({
+    initialState,
+    name: 'review',
+    reducers: {
+        increment(state, action) {
+            state.like++
+        }
+    }
+})
+//extract reducer from the slice
+const ReviewReducer = ReviewSlice.reducer
+//extract actions from the slice
+const { increment } = ReviewSlice.actions
+
+const appStore = configureStore({
+    reducer: {
+        reviewReducer: ReviewReducer
+    }
+})
+
+const Review = () => {
+    const review = useSelector(appState => {
+        return appState.reviewReducer
+    })
+    const dispatch = useDispatch()
+
+    const onLike = () => {
+        dispatch(increment())
+    }
+
+    return <>
+        <Text style={styles.label}>Like {review.like}</Text>
+        <Button title="Like" onPress={onLike} />
+    </>
+}
+
+function App() {
+    return <Provider store={appStore}>
+        <View style={styles.container}>
+            <Review />
+        </View>
+    </Provider>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: 'pink',
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
+})
+
+Task :
+ Convert existing Calculator into redux
+.........................................................................................
+				React Native,Redux Thunk, API Call
+....................................................................................................
+import { View, StyleSheet, Text } from "react-native";
+import { createSlice, createAsyncThunk, configureStore } from '@reduxjs/toolkit'
+import { Provider, useDispatch, useSelector } from 'react-redux'
+import { useEffect } from "react";
+
+const initialState = {
+    entities: [],
+    loading: false,
+
+}
+
+const getPosts = createAsyncThunk('posts/getPosts', async (thunkAPI) => {
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const posts = await res.json()
+    return posts
+})
+
+const postSlice = createSlice({
+    name: 'posts',
+    initialState,
+    reducers: {},
+    extraReducers(builder) {
+        builder.addCase(getPosts.pending, (state, action) => {
+            state.loading = true
+        }).addCase(getPosts.fulfilled, (state, { payload }) => {
+            state.loading = false
+            state.entities = payload
+        }).addCase(getPosts.rejected, (state, action) => {
+            state.loading = false
+        })
+    }
+
+})
+
+const postReducer = postSlice.reducer
+
+const appStore = configureStore({
+    reducer: {
+        posts: postReducer
+    }
+})
+function Post() {
+    const dispatch = useDispatch()
+    const { entities, loading } = useSelector((state) => state.posts)
+
+    useEffect(() => {
+        dispatch(getPosts())
+    }, [])
+
+    if (loading) return <Text style={styles.label}>Loading...</Text>
+
+    return (
+        <View>
+            <Text>Blog Posts</Text>
+            {entities.map((post) => (
+                <Text key={post.id}>{post.title}</Text>
+            ))}
+        </View>
+    )
+}
+
+function App() {
+    return <Provider store={appStore}>
+        <View style={styles.container}>
+            <Post />
+        </View>
+    </Provider>
+}
+
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'pink',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    label: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: 'blue'
+    }
+})
+
+After running this code , you can see the data is displyed, but not able scroll.
+..........................................................................................
+...................................................................................
+			 Container Components
+...................................................................................
+
+Container components are components which contains other components which is called "View" in React Native.
+
+Types of Views:
+
+1.View
+2.ScrollView
+3.ListView
+4.SectionList
+
+
+................................................................................
+		         	Scroll Behaviour
+.................................................................................
+
+View is going to hold child elements, act as container
+
+ScrollViimport { View, StyleSheet, Text, ScrollView } from "react-native";
+import { createSlice, createAsyncThunk, configureStore } from '@reduxjs/toolkit'
+import { Provider, useDispatch, useSelector } from 'react-redux'
+import { useEffect } from "react";
+
+const initialState = {
+    entities: [],
+    loading: false,
+
+}
+
+const getPosts = createAsyncThunk('posts/getPosts', async (thunkAPI) => {
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const posts = await res.json()
+    return posts
+})
+
+const postSlice = createSlice({
+    name: 'posts',
+    initialState,
+    reducers: {},
+    extraReducers(builder) {
+        builder.addCase(getPosts.pending, (state, action) => {
+            state.loading = true
+        }).addCase(getPosts.fulfilled, (state, { payload }) => {
+            state.loading = false
+            state.entities = payload
+        }).addCase(getPosts.rejected, (state, action) => {
+            state.loading = false
+        })
+    }
+
+})
+
+const postReducer = postSlice.reducer
+
+const appStore = configureStore({
+    reducer: {
+        posts: postReducer
+    }
+})
+function Post() {
+    const dispatch = useDispatch()
+    const { entities, loading } = useSelector((state) => state.posts)
+
+    useEffect(() => {
+        dispatch(getPosts())
+    }, [])
+
+    if (loading) return <Text style={styles.label}>Loading...</Text>
+
+    return (
+        <ScrollView>
+            <Text>Blog Posts</Text>
+            {entities.map((post) => (
+                <Text key={post.id}>{post.title}</Text>
+            ))}
+        </ScrollView>
+    )
+}
+
+function App() {
+    return <Provider store={appStore}>
+        <View style={styles.container}>
+            <Post />
+        </View>
+    </Provider>
+}
+
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'pink',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    label: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: 'blue'
+    }
+})
+
+...................................................................................
+				        List Views
+...................................................................................
+
+React Native provides a suit of components for presenting lists of data, Generally, You will want to use "FlatList or Section List"
+
+
+FlatList:
+ It displays a scrolling list of changining, but similary structured data.
+ FlatList works well for long list of data , where number of items change over time.
+ 
+When compare to ScrollView,The FlatList only renders elements that are currently showing on the screen, not all the elements at onces.
+
+
+
+FlatList is similar to array.map in react.
+
+FlatList requires two properties:
+
+1.data
+  data Source
+2.renderItem
+  takes one item from the source and returns a formtted component to render.
+
+FlatList with HardCoded data.
+.............................
+<FlatList data={dataSource} renderItem={(obj)=>{
+  return<Text>{obj.item.dataSource.property}</Text>
+}}
+
+data->Data Prop is called datasource which is plain array
+renderItem -
+  Takes an item from data prop and renders it into list
+
+renderItem({
+ item:ItemObject(todo,contact),
+ index:number,
+ separators:{
+
+ }
+})
+
+function App() {
+    return <Provider store={appStore}>
+        <View style={styles.container}>
+            <Post />
+        </View>
+    </Provider>
+}
+
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        padding: 10,
+        alignItems: 'center'
+    },
+    label: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: 'blue'
+    }
+})
+..............................................................................................
+				Item Selection
+.....................................................................................................
+import { View, StyleSheet, Text, Alert, FlatList } from "react-native";
+import { createSlice, createAsyncThunk, configureStore } from '@reduxjs/toolkit'
+import { Provider, useDispatch, useSelector } from 'react-redux'
+import { useEffect } from "react";
+
+const initialState = {
+    entities: [],
+    loading: false,
+}
+
+const getPosts = createAsyncThunk('posts/getPosts', async (thunkAPI) => {
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const posts = await res.json()
+    return posts
+})
+
+const postSlice = createSlice({
+    name: 'posts',
+    initialState,
+    reducers: {},
+    extraReducers(builder) {
+        builder.addCase(getPosts.pending, (state, action) => {
+            state.loading = true
+        }).addCase(getPosts.fulfilled, (state, { payload }) => {
+            state.loading = false
+            state.entities = payload
+        }).addCase(getPosts.rejected, (state, action) => {
+            state.loading = false
+        })
+    }
+
+})
+
+const postReducer = postSlice.reducer
+
+const appStore = configureStore({
+    reducer: {
+        posts: postReducer
+    }
+})
+
+function Post() {
+    const dispatch = useDispatch()
+    const { entities, loading } = useSelector((state) => state.posts)
+
+    useEffect(() => {
+        dispatch(getPosts())
+    }, [])
+
+    const onSelectItem = (item) => {
+        //show the item
+        console.log(item)
+        Alert.alert(item.title)
+    }
+
+    if (loading) return <Text style={styles.label}>Loading...</Text>
+
+    return <FlatList data={entities} keyExtractor={item => item.id} renderItem={(obj) => {
+        return <Text style={styles.label} onPress={() => {
+            onSelectItem(obj.item)
+        }}>
+            {obj.item.title}
+        </Text>
+    }} />
+
+}
+function App() {
+    return <Provider store={appStore}>
+        <View style={styles.container}>
+            <Post />
+        </View>
+    </Provider>
+}
+
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        padding: 10,
+        alignItems: 'center'
+    },
+    label: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: 'blue'
+    }
+})
+...................................................................................
+			    Spinner - ActivityIndicator
+...................................................................................
+Displays a circular loading indicator.
+
+
+import { View, StyleSheet, Text,  FlatList, Alert, ActivityIndicator } from "react-native";
+import { createSlice, createAsyncThunk, configureStore } from '@reduxjs/toolkit'
+import { Provider, useDispatch, useSelector } from 'react-redux'
+import { useEffect } from "react";
+
+const initialState = {
+    entities: [],
+    loading: false,
+}
+
+const getPosts = createAsyncThunk('posts/getPosts', async (thunkAPI) => {
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const posts = await res.json()
+    return posts
+})
+
+const postSlice = createSlice({
+    name: 'posts',
+    initialState,
+    reducers: {},
+    extraReducers(builder) {
+        builder.addCase(getPosts.pending, (state, action) => {
+            state.loading = true
+        }).addCase(getPosts.fulfilled, (state, { payload }) => {
+            state.loading = false
+            state.entities = payload
+        }).addCase(getPosts.rejected, (state, action) => {
+            state.loading = false
+        })
+    }
+
+})
+
+const postReducer = postSlice.reducer
+
+const appStore = configureStore({
+    reducer: {
+        posts: postReducer
+    }
+})
+function Post() {
+    const dispatch = useDispatch()
+    const { entities, loading } = useSelector((state) => state.posts)
+
+    useEffect(() => {
+        //Todo: Remove settimeout after testing of loader
+        dispatch(getPosts())
+    }, [])
+
+    const onSelectItem = (item) => {
+        //show the item
+        console.log(item)
+        Alert.alert(item.title)
+    }
+
+    if (loading) return <ActivityIndicator size="large" color="#00ff00" />
+
+
+    return <FlatList data={entities} keyExtractor={item => item.id} renderItem={(obj) => {
+        return <Text style={styles.label} onPress={() => {
+            onSelectItem(obj.item)
+        }}>
+            {obj.item.title}
+        </Text>
+    }} />
+
+}
+
+function App() {
+    return <Provider store={appStore}>
+        <View style={styles.container}>
+            <Post />
+        </View>
+    </Provider>
+}
+
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        padding: 10,
+        alignItems: 'center'
+    },
+    label: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: 'blue'
+    }
+})
+....................................................................................
+			       Select Item with Touchable Features
+.....................................................................................
+
+In order to add touchable features , react native offers many components
+
+1.TouchableHighlight
+2.TouchableOpacity
+3.TouchableWithoutFeedBack
+
+import { View, StyleSheet, Text, FlatList, Alert, ActivityIndicator, TouchableHighlight } from "react-native";
+import { createSlice, createAsyncThunk, configureStore } from '@reduxjs/toolkit'
+import { Provider, useDispatch, useSelector } from 'react-redux'
+import { useEffect } from "react";
+
+const initialState = {
+    entities: [],
+    loading: false,
+}
+
+const getPosts = createAsyncThunk('posts/getPosts', async (thunkAPI) => {
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const posts = await res.json()
+    return posts
+})
+
+const postSlice = createSlice({
+    name: 'posts',
+    initialState,
+    reducers: {},
+    extraReducers(builder) {
+        builder.addCase(getPosts.pending, (state, action) => {
+            state.loading = true
+        }).addCase(getPosts.fulfilled, (state, { payload }) => {
+            state.loading = false
+            state.entities = payload
+        }).addCase(getPosts.rejected, (state, action) => {
+            state.loading = false
+        })
+    }
+
+})
+
+const postReducer = postSlice.reducer
+
+const appStore = configureStore({
+    reducer: {
+        posts: postReducer
+    }
+})
+function Post() {
+    const dispatch = useDispatch()
+    const { entities, loading } = useSelector((state) => state.posts)
+
+    useEffect(() => {
+        //Todo: Remove settimeout after testing of loader
+        dispatch(getPosts())
+    }, [])
+
+    const onSelectItem = (item) => {
+        //show the item
+        console.log(item)
+        Alert.alert(item.title)
+    }
+
+    if (loading) return <ActivityIndicator size="large" color="#00ff00" />
+
+
+    return <FlatList data={entities} keyExtractor={item => item.id} renderItem={(obj) => {
+        return <TouchableHighlight activeOpacity={0.4} underlayColor={'lightblue'} onPress={() => {
+            onSelectItem(obj.item)
+        }}>
+            <Text style={styles.label} >
+                {obj.item.title}
+            </Text>
+        </TouchableHighlight>
+    }} />
+
+}
+
+function App() {
+    return <Provider store={appStore}>
+        <View style={styles.container}>
+            <Post />
+        </View>
+    </Provider>
+}
+
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        padding: 10,
+        alignItems: 'center'
+    },
+    label: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: 'blue'
+    }
+})
+.............................................................................................
+				SectionList
+.............................................................................................
+
+import { StyleSheet, View, Text, SectionList } from "react-native";
+
+//data:
+const COURSELIST = [
+    {
+        title: 'User Interface',
+        data: [
+            'HTML',
+            'CSS',
+            'Android',
+            'IOS',
+            'Javascript'
+        ]
+    },
+    {
+        title: 'Backend',
+        data: [
+            'JAVA',
+            'C#',
+            'Microservices',
+            'Python',
+            'Javascript'
+        ]
+
+    },
+]
+
+const Course = props => {
+
+    return <>
+        <SectionList
+            sections={COURSELIST}
+            renderItem={({ item }) => {
+                return <View style={styles.item}>
+                    <Text style={styles.title}>{item}</Text>
+                </View>
+            }}
+            renderSectionHeader={({ section: { title } }) => {
+                return <Text style={styles.header}>{title}</Text>
+            }}
+            keyExtractor={(item, index) => {
+                return item + index
+            }}
+
+        />
+    </>
+}
+
+function App() {
+    return <View style={styles.container}>
+        <Course />
+    </View>
+}
+
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        paddingTop: 10,
+        marginHorizontal: 16,
+    },
+    item: {
+        backgroundColor: '#f9c2ff',
+        padding: 20,
+        marginVertical: 8,
+    },
+    header: {
+        fontSize: 32,
+        backgroundColor: '#fff',
+    },
+    title: {
+        fontSize: 24,
+    },
+});
+export default App;
+.............................................................................................
+				 Images,ImageBackground
+............................................................................................
+
+import React from 'react';
+import { ImageBackground, StyleSheet, Text, View } from 'react-native';
+
+const image = { uri: 'https://legacy.reactjs.org/logo-og.png' };
+
+const App = () => (
+    <View style={styles.container}>
+        <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+            <Text style={styles.text}>Inside</Text>
+        </ImageBackground>
+    </View>
+);
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+    image: {
+        flex: 1,
+        justifyContent: 'center',
+    },
+    text: {
+        color: 'white',
+        fontSize: 42,
+        lineHeight: 84,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        backgroundColor: '#000000c0',
+    },
+});
+
+export default App;
+.....................................................................................
+			        How to get Input from the User
+				       TextInput
+....................................................................................
+
+A foundatinonal Component for inputting text into the app via keyboard.
+
+Features:
+
+1.auto correction
+2.auto capitalization
+3.placeholder text
+4.numeric keypad
+5.Password fiedls
+
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
+
+const TextInputComponent = () => {
+    const [text, onChangeText] = useState('Welcome')
+    const [number, onChangeNumber] = useState(0)
+
+    return <View>
+        <TextInput style={styles.input} value={text} onChangeText={onChangeText} />
+        <Button title='Show Text' onPress={() => {
+            Alert.alert(text)
+        }} />
+        <TextInput keyboardType="numeric" style={styles.input} value={number} onChangeText={onChangeNumber} />
+        <Button title='Show Number' onPress={() => {
+            let a = 100
+            let result = a * parseInt(number)
+            Alert.alert(result.toString())
+        }} />
+    </View>
+}
+
+const App = () => (
+    <View style={styles.container}>
+        <TextInputComponent />
+    </View>
+);
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'pink'
+    },
+    input: {
+        height: 40,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10
+    }
+});
+
+export default App;
+.............................................................................................
+
+.....................................................................................	
+				  React Native Navigation
+....................................................................................
+			
+How navigation works?
+
+In a web browser, you can link to different pages using an anchor (<a>) tag. When the user clicks on a link, the URL is pushed to the browser history stack.
+
+ When the user presses the back button, the browser pops the item from the top of the history stack, so the active page is now the previously visited page.
+
+React Native doesn't have a built-in idea of a global history stack like a web browser does -- this is where React Navigation enters the story.
+
+React Native Navigation's stack navigator provides a way for your app to transition between screens and manage navigation history.
+
+If your app uses only one stack navigator then it is conceptually similar to how a web browser handles navigation state - your app pushes and pops items from the navigation stack as users interact with it, and this results in the user seeing different screens. 
+
+A key difference between how this works in a web browser and in React Navigation is that React Navigation's stack navigator provides the gestures and animations that you would expect on Android and iOS when navigating between routes in the stack.
+
+Core concepts in React Native Navigation:
+.........................................
+
+1.Screen
+   =>It is a special component,which only display Userinterface, not having any logic      It acts container.
+2.Component
+   => It is component having biz logic and ui logic...
+
+
+Getting Started:
+
+create new project:
+
+npx react-native@latest init NavigationApp
+
+in case your project is in "React Native cli"
+in case your project is in "Expo work flow"
+
+Common for both projects:
+
+npm install @react-navigation/native @react-navigation/native-stack
+
+For Bare React Native project:
+
+npm install react-native-screens react-native-safe-area-context
+
+
+For Expo Managed Projects
+npx expo install react-native-screens react-native-safe-area-context
+
+React Navigation container or parent object is "Navigation Container".
+
+...................................................................................
+				Multi screen-Page
+.................................................................................
+
+Types of navigation:
+1.screen to screen - stack navigation -  @react-navigation/stack
+2.Tab - tab based navivation.  @react-navigation/bottom-tabs
+3.Drawer -Drawer navigation.   @react-navigation/drawer
+
+
+Stack Navigation:
+
+Moving among screens: How to move from one screen to another screen?
+
+StackNavigator :
+ 
+ Object used to navigate between screen.
+
+ Stack Object used to  represent stack navigator.
+
+import { createNativeStackNavigator } from "@react-navigation/native-stack";//create 
+Stack Object
+const Stack  = createNativeStackNavigator();
+console.log(Stack)
+
+Object {
+  "Navigator": [Function StackNavigator],
+  "Screen": [Function Screen],
+}
+
+
+1.createStackNavigator is a function that returns an object containing 2 properties: Screen and Navigator.
+2.Both of them are React components used for configuring the navigator.
+The Navigator should contain Screen elements as its children to define the configuration for routes.
+
+3.NavigationContainer is a component which manages our navigation tree and contains the navigation state. This component must wrap all navigators structure. Usually, we'd render this component at the root of our app, which is usually the component exported from App.js.
+
+
+1.createStackNavigator is a function that returns an object containing 2 properties: Screen and Navigator.
+2.Both of them are React components used for configuring the navigator.
+The Navigator should contain Screen elements as its children to define the configuration for routes.
+
+3.NavigationContainer is a component which manages our navigation tree and contains the navigation state. This component must wrap all navigators structure. Usually, we'd render this component at the root of our app, which is usually the component exported from App.js.
+
+
+Use case : Single Screen:
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Text, View, StyleSheet } from 'react-native'
+
+//create Object of Stack
+const Stack = createNativeStackNavigator()
+
+//Screen Components
+const Home = () => {
+    return <View style={styles.container}>
+        <Text>Home Screen</Text>
+    </View>
+}
+
+
+function App() {
+    return <NavigationContainer>
+        {/* Type of Navigation :Stack or Tab or Drawer Navigation */}
+        {/* Stack Navigation */}
+        <Stack.Navigator>
+            {/* Define screens */}
+            <Stack.Screen name="Home" component={Home} />
+        </Stack.Navigator>
+    </NavigationContainer>
+
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
+})
+
+Multi Screen:
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Text, View, StyleSheet } from 'react-native'
+import { Screen } from "react-native-screens";
+
+//create Object of Stack
+const Stack = createNativeStackNavigator()
+
+//Screen Components
+const Home = () => {
+    return <View style={styles.container}>
+        <Text>Home Screen</Text>
+    </View>
+}
+
+const Profile = () => {
+    return <View style={styles.container}>
+        <Text>Profile Screen</Text>
+    </View>
+}
+
+function App() {
+    return <NavigationContainer>
+        {/* Type of Navigation :Stack or Tab or Drawer Navigation */}
+        {/* Stack Navigation */}
+        <Stack.Navigator>
+            {/* Define screens */}
+            <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="Profile" component={Profile}/>
+        </Stack.Navigator>
+    </NavigationContainer>
+
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
+})
+
+..................................................................................
+			   How to move between screens
+..................................................................................
+
+Navigating to a new screen​
+
+Every Component receives information from the parent component as a prop.
+When component is rendered via route,React Navigator injects an object called "Navigation" Object as prop to every Component
+
+
+Props;
+Object {
+  "navigation": Object {
+    "addListener": [Function addListener],
+    "canGoBack": [Function canGoBack],
+    "dispatch": [Function dispatch],
+    "getId": [Function getId],
+    "getParent": [Function getParent],
+    "getState": [Function anonymous],
+    "goBack": [Function anonymous],
+    "isFocused": [Function isFocused],
+    "navigate": [Function anonymous],
+    "pop": [Function anonymous],
+    "popToTop": [Function anonymous],
+    "push": [Function anonymous],
+    "removeListener": [Function removeListener],
+    "replace": [Function anonymous],
+    "reset": [Function anonymous],
+    "setOptions": [Function setOptions],
+    "setParams": [Function anonymous],
+  },
+  "route": Object {
+    "key": "Home-V-z_dGCJfqcHgNXxzxRGK",
+    "name": "Home",
+    "params": undefined,
+  },
+
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Text, View, StyleSheet, Button } from 'react-native'
+
+//create Object of Stack
+const Stack = createNativeStackNavigator()
+
+//Screen Components
+const Home = (props) => {
+
+    const onMove = () => {
+        //move to Profile
+        props.navigation.navigate("Profile")
+    }
+    return <View style={styles.container}>
+        <Text>Home Screen</Text>
+        <Button title="GoToProfile" onPress={onMove} />
+    </View>
+}
+
+const Profile = (prop) => {
+    return <View style={styles.container}>
+        <Text>Profile Screen</Text>
+    </View>
+}
+
+function App() {
+    return <NavigationContainer>
+        {/* Type of Navigation :Stack or Tab or Drawer Navigation */}
+        {/* Stack Navigation */}
+        <Stack.Navigator>
+            {/* Define screens */}
+            <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="Profile" component={Profile} />
+        </Stack.Navigator>
+    </NavigationContainer>
+
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
+})
+..............................................................................................
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Text, View, StyleSheet, Button } from 'react-native'
+
+//create Object of Stack
+const Stack = createNativeStackNavigator()
+
+//Screen Components
+const Home = (props) => {
+
+    const onMove = () => {
+        //move to Profile
+        props.navigation.navigate("Profile", { id: 1, name: 'Subramanian', status: true })
+    }
+    return <View style={styles.container}>
+        <Text>Home Screen</Text>
+        <Button title="GoToProfile" onPress={onMove} />
+    </View>
+}
+
+const Profile = (props) => {
+    const profile = props.route.params
+    return <View style={styles.container}>
+        <Text>Profile Screen</Text>
+        <Text>Id : {profile.id}</Text>
+        <Text>Name : {profile.name}</Text>
+        <Text>Status : {profile.status ? "Available" : "Not Available"}</Text>
+
+
+    </View>
+}
+
+function App() {
+    return <NavigationContainer>
+        {/* Type of Navigation :Stack or Tab or Drawer Navigation */}
+        {/* Stack Navigation */}
+        <Stack.Navigator>
+            {/* Define screens */}
+            <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="Profile" component={Profile} />
+        </Stack.Navigator>
+    </NavigationContainer>
+
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
+})
+.........................................................................................
+			Master Details Page- Screen to Screen with Rest api
+
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { StyleSheet, View, Text, Button, TouchableHighlight, FlatList, ActivityIndicator } from 'react-native'
+import { useState, useEffect } from "react";
+
+const Stack = createNativeStackNavigator();
+
+const Error = props => {
+    return <>
+        <Text>{props.error}</Text>
+    </>
+}
+const Spinner = props => {
+    return <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
+        <ActivityIndicator size='large' color="#0000ff" />
+    </View>
+}
+const Posts = props => {
+    let initalState = {
+        isLoaded: false,
+        items: [],
+        error: null
+    }
+    const [posts, setPosts] = useState(initalState)
+
+    async function fetchPosts() {
+        try {
+            const url = 'https://jsonplaceholder.typicode.com/posts'
+            const values = await (await fetch(url)).json()
+            setPosts({ ...posts, isLoaded: true, items: posts.items.concat(values) })
+        }
+        catch (err) {
+            setPosts({ ...posts, isLoaded: true, error: err })
+        }
+    }
+    //useEffect : ComponentDidMount 
+    useEffect(() => {
+        fetchPosts()
+    }, [])
+
+    const onSelect = (item) => {
+        props.navigation.navigate('PostsDetails', item)
+    }
+
+    const { error, isLoaded, items } = posts
+    if (error) {
+        return <Error error={error} />
+    } else if (!isLoaded) {
+        return <Spinner />
+    } else {
+        return <FlatList
+            data={items}
+            keyExtractor={item => item.id}
+            renderItem={({ item }) => {
+                return <TouchableHighlight activeOpacity={0.4} underlayColor='yellow' onPress={() => { onSelect(item) }} >
+                    <View>
+                        <Text style={styles.item}>{item.title}</Text>
+                    </View>
+                </TouchableHighlight>
+            }}
+        />
+    }
+
+}
+const HomeScreen = props => {
+    const { navigation: { navigate } } = props
+    const onMove = () => {
+        navigate('Posts')
+    }
+    return <View style={styles.container}>
+        <Text style={{
+            fontSize: 40,
+        }}>Home Screen</Text>
+        <Button title="Posts" onPress={onMove} />
+    </View>
+}
+
+const PostScreen = props => {
+    return <>
+        <Posts navigation={props.navigation} />
+    </>
+}
+
+const PostsDetailScreen = props => {
+    const { title, body } = props.route.params
+    return <View style={styles.container}>
+        <Text style={{ fontSize: 25, color: 'blue' }}>{title}</Text>
+        <Text style={{ fontSize: 20, color: 'red' }}>{body}</Text>
+    </View>
+}
+
+const App = props => {
+    return <NavigationContainer>
+        <Stack.Navigator>
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Posts" component={PostScreen} />
+            <Stack.Screen name="PostsDetails" component={PostsDetailScreen} />
+        </Stack.Navigator>
+    </NavigationContainer>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'lightblue',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    item: {
+        padding: 10,
+        fontSize: 18,
+        height: 44,
+        fontWeight: 'bold',
+        color: '#000'
+
+    },
+    text: {
+        fontSize: 30,
+        textAlign: 'center',
+        color: '#000'
+    }
+})
+..............................................................................................
+
+.....................................................................................				Configuring the Header Bar
+....................................................................................
+
+Header Title:
+ By default header title is name of the Route
+
+ <Stack.Screen name="Home" component={Home} />
+
+How to override the default Header title?
+
+   <Stack.Screen options={{title:'My Personal Diary'}} name="Home" component={Home} />
+
+How to update header dynamically based on some props?
+
+<Stack.Screen name="Profile" options={(navigation)=>{
+   return {
+	title:navigation.route.params.name || 'Your Header'
+   }
+}} component={Profile} />
+
+
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { StyleSheet, View, Text, Button, TouchableHighlight, FlatList, ActivityIndicator } from 'react-native'
+import { useState, useEffect } from "react";
+
+const Stack = createNativeStackNavigator();
+
+const Error = props => {
+    return <>
+        <Text>{props.error}</Text>
+    </>
+}
+const Spinner = props => {
+    return <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
+        <ActivityIndicator size='large' color="#0000ff" />
+    </View>
+}
+const Posts = props => {
+    let initalState = {
+        isLoaded: false,
+        items: [],
+        error: null
+    }
+    const [posts, setPosts] = useState(initalState)
+
+    async function fetchPosts() {
+        try {
+            const url = 'https://jsonplaceholder.typicode.com/posts'
+            const values = await (await fetch(url)).json()
+            setPosts({ ...posts, isLoaded: true, items: posts.items.concat(values) })
+        }
+        catch (err) {
+            setPosts({ ...posts, isLoaded: true, error: err })
+        }
+    }
+    //useEffect : ComponentDidMount 
+    useEffect(() => {
+        fetchPosts()
+    }, [])
+
+    const onSelect = (item) => {
+        props.navigation.navigate('PostsDetails', item)
+    }
+
+    const { error, isLoaded, items } = posts
+    if (error) {
+        return <Error error={error} />
+    } else if (!isLoaded) {
+        return <Spinner />
+    } else {
+        return <FlatList
+            data={items}
+            keyExtractor={item => item.id}
+            renderItem={({ item }) => {
+                return <TouchableHighlight activeOpacity={0.4} underlayColor='yellow' onPress={() => { onSelect(item) }} >
+                    <View>
+                        <Text style={styles.item}>{item.title}</Text>
+                    </View>
+                </TouchableHighlight>
+            }}
+        />
+    }
+
+}
+const HomeScreen = props => {
+    const { navigation: { navigate } } = props
+    const onMove = () => {
+        navigate('Posts')
+    }
+    return <View style={styles.container}>
+        <Text style={{
+            fontSize: 40,
+        }}>Home Screen</Text>
+        <Button title="Posts" onPress={onMove} />
+    </View>
+}
+
+const PostScreen = props => {
+    return <>
+        <Posts navigation={props.navigation} />
+    </>
+}
+
+const PostsDetailScreen = props => {
+    const { title, body } = props.route.params
+    return <View style={styles.container}>
+        <Text style={{ fontSize: 25, color: 'blue' }}>{title}</Text>
+        <Text style={{ fontSize: 20, color: 'red' }}>{body}</Text>
+    </View>
+}
+
+const App = props => {
+    return <NavigationContainer>
+        <Stack.Navigator>
+            <Stack.Screen options={{ title: 'IBM Tech Blog' }} name="Home" component={HomeScreen} />
+            <Stack.Screen name="Posts" component={PostScreen} />
+            <Stack.Screen options={(navigation) => {
+                //return options Object
+                return {
+                    title:navigation.route.params.title || 'Profile Details'
+                }
+            }} name="PostsDetails" component={PostsDetailScreen} />
+        </Stack.Navigator>
+    </NavigationContainer>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'lightblue',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    item: {
+        padding: 10,
+        fontSize: 18,
+        height: 44,
+        fontWeight: 'bold',
+        color: '#000'
+
+    },
+    text: {
+        fontSize: 30,
+        textAlign: 'center',
+        color: '#000'
+    }
+})
+....................................................................................
+				Header styles
+....................................................................................
+
+
+There are three key properties to use when customizing the style of your header: headerStyle, headerTintColor, and headerTitleStyle.
+
+headerStyle: a style object that will be applied to the View that wraps the header. If you set backgroundColor on it, that will be the color of your header.
+
+headerTintColor: the back button and title both use this property as their color.
+
+headerTitleStyle: if we want to customize the fontFamily, fontWeight and other Text 
+Style properties for the title, we can use this to do it.
+
+....................................................................................
+				Header styles
+....................................................................................
+
+
+There are three key properties to use when customizing the style of your header: headerStyle, headerTintColor, and headerTitleStyle.
+
+headerStyle: a style object that will be applied to the View that wraps the header. If you set backgroundColor on it, that will be the color of your header.
+
+headerTintColor: the back button and title both use this property as their color.
+
+headerTitleStyle: if we want to customize the fontFamily, fontWeight and other Text 
+Style properties for the title, we can use this to do it.
+
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { StyleSheet, View, Text, Button, TouchableHighlight, FlatList, ActivityIndicator } from 'react-native'
+import { useState, useEffect } from "react";
+
+const Stack = createNativeStackNavigator();
+
+const Error = props => {
+    return <>
+        <Text>{props.error}</Text>
+    </>
+}
+const Spinner = props => {
+    return <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
+        <ActivityIndicator size='large' color="#0000ff" />
+    </View>
+}
+
+const Posts = props => {
+    let initalState = {
+        isLoaded: false,
+        items: [],
+        error: null
+    }
+    const [posts, setPosts] = useState(initalState)
+
+    async function fetchPosts() {
+        try {
+            const url = 'https://jsonplaceholder.typicode.com/posts'
+            const values = await (await fetch(url)).json()
+            setPosts({ ...posts, isLoaded: true, items: posts.items.concat(values) })
+        }
+        catch (err) {
+            setPosts({ ...posts, isLoaded: true, error: err })
+        }
+    }
+    //useEffect : ComponentDidMount 
+    useEffect(() => {
+        setTimeout(() => {
+            fetchPosts()
+        }, 5000)
+    }, [])
+
+    const onSelect = (item) => {
+        props.navigation.navigate('PostsDetails', item)
+    }
+
+    const { error, isLoaded, items } = posts
+    if (error) {
+        return <Error error={error} />
+    } else if (!isLoaded) {
+        return <Spinner />
+    } else {
+        return <FlatList
+            data={items}
+            keyExtractor={item => item.id}
+            renderItem={({ item }) => {
+                return <TouchableHighlight activeOpacity={0.4} underlayColor='yellow' onPress={() => { onSelect(item) }} >
+                    <View>
+                        <Text style={styles.item}>{item.title}</Text>
+                    </View>
+                </TouchableHighlight>
+            }}
+        />
+    }
+
+}
+
+//Screens 
+//Screens 
+const HomeScreen = props => {
+    const { navigation: { navigate } } = props
+    const onMove = () => {
+        navigate('Posts')
+    }
+    return <View style={styles.container}>
+        <Text style={{
+            fontSize: 40,
+        }}>Home Screen</Text>
+        <Button title="Posts" onPress={onMove} />
+    </View>
+}
+
+const PostScreen = props => {
+    return <>
+        <Posts navigation={props.navigation} />
+    </>
+}
+
+const PostsDetailScreen = props => {
+    const { title, body } = props.route.params
+    return <View style={styles.container}>
+        <Text style={{ fontSize: 25, color: 'blue' }}>{title}</Text>
+        <Text style={{ fontSize: 20, color: 'red' }}>{body}</Text>
+    </View>
+}
+
+const App = props => {
+    return <NavigationContainer>
+        <Stack.Navigator>
+            <Stack.Screen options={{
+                title: 'MyHome', headerStyle: {
+                    backgroundColor: 'light blue'
+                }
+            }} name="Home" component={HomeScreen} />
+            <Stack.Screen name="Posts" component={PostScreen} />
+            <Stack.Screen options={(navigation) => {
+                //return options  object 
+                return {
+                    title: navigation.route.params.title || 'Profile Details',
+                    headerStyle: {
+                        backgroundColor: 'pink'
+                    },
+                    headerTintColor: 'blue',
+                    headerTitleStyle: {
+                        fontWeight: 'bold',
+                        fontFamily: 'fantasy'
+                    }
+                }
+
+            }} name="PostsDetails" component={PostsDetailScreen} />
+        </Stack.Navigator>
+    </NavigationContainer>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'lightblue',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    item: {
+        padding: 10,
+        fontSize: 18,
+        height: 44,
+        fontWeight: 'bold',
+        color: '#000'
+
+    },
+    text: {
+        fontSize: 30,
+        textAlign: 'center',
+        color: '#000'
+    }
+})
+..............................................................................................
+....................................................................................
+			 Screen Options vs options and Header Button
+....................................................................................
+
+Suppose i want to share common style for all screens,Screen options are used to set common styles for all screens.
+
+       <Stack.Navigator screenOptions={{
+            headerStyle: {
+                backgroundColor: '#f4511e'
+            },
+            headerTintColor: 'blue',
+            headerTitleStyle: {
+                fontWeight: 'bold'
+            }
+        }}>
+
+
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { StyleSheet, View, Text, Button, TouchableHighlight, FlatList, ActivityIndicator, Alert } from 'react-native'
+import { useState, useEffect } from "react";
+
+
+//create Stack Object
+const Stack = createNativeStackNavigator();
+
+
+const Error = props => {
+    return <>
+        <Text>{props.error}</Text>
+    </>
+}
+const Spinner = props => {
+    return <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
+        <ActivityIndicator size='large' color="#0000ff" />
+    </View>
+}
+const Posts = props => {
+    let initalState = {
+        isLoaded: false,
+        items: [],
+        error: null
+    }
+    const [posts, setPosts] = useState(initalState)
+
+    console.log('Posts props')
+    console.log(props)
+
+    async function fetchPosts() {
+        try {
+            const url = 'https://jsonplaceholder.typicode.com/posts'
+            const values = await (await fetch(url)).json()
+            setPosts({ ...posts, isLoaded: true, items: posts.items.concat(values) })
+        }
+        catch (err) {
+            setPosts({ ...posts, isLoaded: true, error: err })
+        }
+    }
+    //useEffect : ComponentDidMount 
+    useEffect(() => {
+        setTimeout(() => {
+            fetchPosts()
+        }, 5000)
+    }, [])
+
+    const onSelect = (item) => {
+        props.navigation.navigate('PostsDetails', item)
+    }
+
+    const { error, isLoaded, items } = posts
+    if (error) {
+        return <Error error={error} />
+    } else if (!isLoaded) {
+        return <Spinner />
+    } else {
+        return <FlatList
+            data={items}
+            keyExtractor={item => item.id}
+            renderItem={({ item }) => {
+                return <TouchableHighlight activeOpacity={0.4} underlayColor='yellow' onPress={() => { onSelect(item) }} >
+                    <View>
+                        <Text style={styles.item}>{item.title}</Text>
+                    </View>
+                </TouchableHighlight>
+            }}
+        />
+    }
+
+}
+
+
+
+
+//Screens 
+const HomeScreen = props => {
+    // const { navigation: { navigate } } = props
+    // const onMove = () => {
+    //     navigate('Posts')
+    // }
+    return <View style={styles.container}>
+        <Text style={{
+            fontSize: 40,
+        }}>Home Screen</Text>
+        {/* <Button title="Posts" onPress={onMove} /> */}
+    </View>
+}
+const PostScreen = props => {
+    return <>
+        <Posts navigation={props.navigation} />
+    </>
+}
+
+const PostsDetailScreen = props => {
+
+    const { title, body } = props.route.params
+
+    return <View style={styles.container}>
+        <Text style={{ fontSize: 25, color: 'blue' }}>{title}</Text>
+        <Text style={{ fontSize: 20, color: 'red' }}>{body}</Text>
+    </View>
+}
+
+
+
+const App = props => {
+    return <NavigationContainer>
+        <Stack.Navigator screenOptions={{
+            headerStyle: {
+                backgroundColor: '#f4511e'
+            },
+            headerTintColor: 'blue',
+            headerTitleStyle: {
+                fontWeight: 'bold'
+            }
+        }}>
+            <Stack.Screen options={(navigation) => {
+                console.log('inside navigation')
+                console.log(navigation)
+                const onMove = () => {
+                    Alert.alert('clicked')
+                    //navigation.navigate('Posts')
+                }
+                return {
+                    title: 'My Posts App',
+                    headerRight: () => {
+                        return <Button title="Posts" onPress={onMove} />
+                    }
+                }
+            }} name="Home" component={HomeScreen} />
+            <Stack.Screen name="Posts" component={PostScreen} />
+            <Stack.Screen options={(navigation) => {
+                return {
+                    title: navigation.route.params.title || 'Your Blog',
+                    headerTintColor: 'blue',
+                    headerTitleStyle: {
+                        fontWeight: 'bold'
+                    }
+                }
+            }} name="PostsDetails" component={PostsDetailScreen} />
+        </Stack.Navigator>
+    </NavigationContainer>
+}
+
+
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'lightblue',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    item: {
+        padding: 10,
+        fontSize: 18,
+        height: 44,
+        fontWeight: 'bold',
+        color: '#000'
+
+    },
+    text: {
+        fontSize: 30,
+        textAlign: 'center',
+        color: '#000'
+    }
+})
+
+....................................................................................
+			  Tab Navigation
+...................................................................................
+
+Tab Naviation:
+
+Types of Tabs
+1.TopTab
+2.BottomTab
+3.MaterialBottomTab | MaterialTopTab
+
+npm i @react-navigation/material-top-tabs
+npm i @react-navigation/bottom-tabs
+npm i @react-navigation/material-bottom-tabs
+
+
+npm i react-native-pager-view
+
+import { NavigationContainer } from "@react-navigation/native";
+import { View, StyleSheet, Text } from 'react-native'
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+
+const Tab = createMaterialTopTabNavigator();
+
+const FeedScreen = () => {
+    return <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>FeedScreen</Text>
+    </View>
+}
+const NotificationsScreen = () => {
+    return <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>NotificationsScreen</Text>
+    </View>
+}
+const ProfileScreen = () => {
+    return <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>ProfileScreen</Text>
+    </View>
+}
+function MyTabs() {
+    return <Tab.Navigator initialRouteName="Feed" screenOptions={{
+        tabBarActiveTintColor: '#e91e63',
+        tabBarLabelStyle: {
+            fontSize: 12,
+            fontWeight: 'bold',
+        },
+        tabBarStyle: {
+            backgroundColor: 'powderblue'
+        }
+    }}>
+        <Tab.Screen name="Feed" component={FeedScreen} />
+        <Tab.Screen name="Notifications" component={NotificationsScreen} />
+        <Tab.Screen name="Profile" component={ProfileScreen} />
+    </Tab.Navigator>
+}
+function App() {
+    return <NavigationContainer>
+        <MyTabs />
+    </NavigationContainer>
+}
+
+export default App;
+
+....................................................................................
+Material Bottom Tab Navigation:
+.....................................................................................
+
+import { NavigationContainer } from "@react-navigation/native";
+import { View, Text } from 'react-native'
+import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
+
+const Tab = createMaterialBottomTabNavigator();
+
+const FeedScreen = () => {
+    return <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>FeedScreen</Text>
+    </View>
+}
+const NotificationsScreen = () => {
+    return <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>NotificationsScreen</Text>
+    </View>
+}
+const ProfileScreen = () => {
+    return <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>ProfileScreen</Text>
+    </View>
+}
+
+function MyTabs() {
+    return (
+        <Tab.Navigator>
+            <Tab.Screen name="Feed" component={FeedScreen} options={{
+                tabBarLabel: 'Feed',
+                tabBarIcon: ({ color }) => (
+                    <MaterialCommunityIcons name="home" color={color} size={26} />
+                ),
+            }} />
+            <Tab.Screen name="Notification" component={NotificationsScreen} />
+            <Tab.Screen name="Profiles" component={ProfileScreen} />
+        </Tab.Navigator>
+    );
+}
+function App() {
+    return <SafeAreaProvider>
+        <NavigationContainer>
+            <MyTabs />
+        </NavigationContainer>
+    </SafeAreaProvider>
+}
+
+export default App;
+
+...........................................................................................
+				Tab + Stack
+............................................................................................
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { View, Text, StyleSheet, Button } from 'react-native';
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+const Tab = createMaterialTopTabNavigator();
+//create tab:
+const Stack = createNativeStackNavigator();
+
+const Messages = props => {
+    const { navigation } = props;
+    return <View style={styles.container}>
+        <Text>Messages Screen</Text>
+        <Button title="go to Settions" onPress={() => {
+            navigation.navigate('Settings')
+        }} />
+    </View>
+}
+const Feed = props => {
+    return <View style={styles.container}>
+        <Text>Feed Screen</Text>
+    </View>
+}
+const Settings = props => {
+    return <View style={styles.container}>
+        <Text>Settings Screen</Text>
+    </View>
+}
+const Home = props => {
+    return <Tab.Navigator>
+        <Tab.Screen name="Messages" component={Messages} />
+        <Tab.Screen name="Feed" component={Feed} />
+    </Tab.Navigator>
+}
+function App() {
+    return <NavigationContainer>
+        <Stack.Navigator>
+            <Stack.Screen
+                name="Home"
+                component={Home}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen name="Settings" component={Settings} />
+        </Stack.Navigator>
+    </NavigationContainer>
+
+}
+
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+});
+............................................................................................
+				Native Components
+............................................................................................
+Device specfic specific features
+.......................................................................................................
+React Native core does not have any component or api to talk with device features
+
+such as location,camera,network etc...
+
+We have to go with third party libs
+
+1.https://reactnative.directory/
+
+2.Expo Framework.
+
+Expo framwork offers most of the device specific components and apis.
+
+if you want to use expo components inside react native cli based projects are not stright forward.
+we need to lot of configuration.
+..............................................................................................
+			  Location and google Map integration
+..............................................................................................
+
+How to get gps location and show that in map?
+
+Steps:
+
+1.google map integration
+
+npm i react-native-maps
+npm i @react-native-community/geolocation
+
+2.Get Google map key
+Obtain a Google Maps API Key
+API Key
+AIzaSyCRE1CZ8UX6sWHqU9gpe3vOd4KNpCT7lb8
+
+3.Add android dependencies
+
+android/app/build.gradle
+
+dependencies {
+
+   implementation 'com.google.android.gms:play-services-maps:17.0.1'
+
+}
+
+4.AndroidManifest.xml
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+<application
+      android:name=".MainApplication"
+      android:label="@string/app_name"
+      android:icon="@mipmap/ic_launcher"
+      android:roundIcon="@mipmap/ic_launcher_round"
+      android:allowBackup="false"
+      android:theme="@style/AppTheme"
+      android:supportsRtl="true">
+
+      <meta-data
+      android:name="com.google.android.geo.API_KEY"
+      android:value="AIzaSyCRE1CZ8UX6sWHqU9gpe3vOd4KNpCT7lb8" />
+ 
+</application>
+
+5.Set lat and lng in emulator
+............................................................
+..............................................................................................
+			  Location and google Map integration
+..............................................................................................
+
+How to get gps location and show that in map?
+
+Steps:
+
+1.google map integration
+
+npm i react-native-maps
+npm i @react-native-community/geolocation
+
+2.Get Google map key
+Obtain a Google Maps API Key
+API Key
+AIzaSyCRE1CZ8UX6sWHqU9gpe3vOd4KNpCT7lb8
+
+3.Add android dependencies
+
+android/app/build.gradle
+
+dependencies {
+
+   implementation 'com.google.android.gms:play-services-maps:17.0.1'
+
+}
+
+4.AndroidManifest.xml
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+<application
+      android:name=".MainApplication"
+      android:label="@string/app_name"
+      android:icon="@mipmap/ic_launcher"
+      android:roundIcon="@mipmap/ic_launcher_round"
+      android:allowBackup="false"
+      android:theme="@style/AppTheme"
+      android:supportsRtl="true">
+
+      <meta-data
+      android:name="com.google.android.geo.API_KEY"
+      android:value="AIzaSyCRE1CZ8UX6sWHqU9gpe3vOd4KNpCT7lb8" />
+ 
+</application>
+
+5.Set lat and lng in emulator
+......
+6.code 
+import React, { useEffect, useState } from 'react';
+import { View, Text, Button, PermissionsAndroid, Platform } from 'react-native';
+import MapView, { Marker } from 'react-native-maps';
+import Geolocation from '@react-native-community/geolocation';
+
+function App() {
+    const [location, setLocation] = useState(null);
+
+    useEffect(() => {
+        if (Platform.OS === 'android') {
+            requestLocationPermission();
+        }
+        getCurrentLocation();
+    }, []);
+    // Function to get current location
+    const getCurrentLocation = () => {
+        Geolocation.getCurrentPosition((position) => {
+            setLocation(position.coords);
+        },
+            (error) => console.log(error),
+            { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
+        );
+    };
+    // Request location permission for Android
+    const requestLocationPermission = async () => {
+        try {
+            const granted = await PermissionsAndroid.request(
+                PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+                {
+                    title: 'Location Permission',
+                    message: 'We need access to your location to show it on the map.',
+                    buttonNeutral: 'Ask Me Later',
+                    buttonNegative: 'Cancel',
+                    buttonPositive: 'OK',
+                }
+            );
+            if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+                console.log('Location permission granted');
+            } else {
+                console.log('Location permission denied');
+            }
+        } catch (err) {
+            console.warn(err);
+        }
+    };
+    return (
+        <View style={{ flex: 1 }}>
+            {location ? (
+                <MapView
+                    style={{ flex: 1 }}
+                    region={{
+                        latitude: location.latitude,
+                        longitude: location.longitude,
+                        latitudeDelta: 0.0922,
+                        longitudeDelta: 0.0421,
+                    }}
+                >
+                    <Marker coordinate={location} title="Your Location" />
+                </MapView>
+            ) : (
+                <Text>Fetching location...</Text>
+            )}
+
+            <Button title="Get Location" onPress={getCurrentLocation} />
+        </View>
+    );
+}
+
+export default App;
+............................................................................................
+.......................................................................................................
+Camera:
+  Integrating the camera in React Native involves using libraries like react-native-vision-camera or react-native-camera. Here's a step-by-step guide to set up and test the camera in your React Native app, including how to handle testing on a simulator.
+
+1. Install the Camera Library
+The recommended library is react-native-vision-camera, as it is modern, well-maintained, and provides better performance.
+https://react-native-vision-camera.com/docs/guides
+
+npm i react-native-vision-camera
+
+
+2.AndroidManifest.xml
+<uses-permission android:name="android.permission.CAMERA" />
+
+import React, { useEffect } from 'react';
+import { StyleSheet, View, Text, Button, Alert } from 'react-native';
+import { Camera, useCameraDevice } from 'react-native-vision-camera';
+
+
+function App() {
+    const device = useCameraDevice('back')
+    useEffect(() => {
+        console.log('Available devices:', device);
+    }, [device]);
+    useEffect(() => {
+        const requestPermission = async () => {
+            const cameraPermission = await Camera.requestCameraPermission();
+            const microphonePermission = await Camera.requestMicrophonePermission();
+
+            if (cameraPermission !== 'authorized' || microphonePermission !== 'authorized') {
+                Alert.alert('Permission denied', 'Camera or Microphone permission is required.');
+            }
+        };
+
+        requestPermission();
+    }, []);
+    if (device == null) {
+        return <Text>Loading camera...</Text>;
+    }
+    return (
+        <View style={styles.container}>
+            <Camera
+                style={StyleSheet.absoluteFill}
+                device={device}
+                isActive={true}
+            />
+            <View style={styles.buttonContainer}>
+                <Button title="Capture" onPress={() => Alert.alert('Feature not implemented')} />
+            </View>
+        </View>
+    );
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: { flex: 1 },
+    buttonContainer: {
+        position: 'absolute',
+        bottom: 20,
+        alignSelf: 'center',
+        backgroundColor: 'white',
+        borderRadius: 10,
+        padding: 10,
+    },
+});
+
+..............................................................................................			     How to release app?
+
+
+How to release app?
+
+
+Publishing an APK file using React Native involves several steps. Here's a guide to help you through the process:
+
+1. Set Up Your Environment
+Ensure your project is properly set up for Android.
+
+Install necessary tools:
+Node.js
+Android Studio
+React Native CLI
+Run your app on an emulator or device using:
+
+bash
+Copy code
+react-native run-android
+
+
+2. Configure Your App for Release
+
+Update AndroidManifest.xml
+
+Open android/app/src/main/AndroidManifest.xml.
+
+Check and update the <application> tag for the release mode:
+
+xml
+
+<application
+    android:allowBackup="true"
+    android:label="YourAppName"
+    android:icon="@mipmap/ic_launcher"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    android:supportsRtl="true"
+    android:theme="@style/AppTheme">
+
+
+Set Up Signing Key
+Generate a keystore:
+
+
+keytool -genkey -v -keystore your-release-key.keystore -keyalg RSA -keysize 2048 -validity 10000 -alias your-key-alias
+
+Follow the prompts to set up the keystore password and alias.
+Save the your-release-key.keystore file in the android/app directory.
+
+Configure gradle.properties
+Add the signing details to android/gradle.properties:
+
+Copy code
+MYAPP_RELEASE_STORE_FILE=your-release-key.keystore
+MYAPP_RELEASE_KEY_ALIAS=your-key-alias
+MYAPP_RELEASE_STORE_PASSWORD=your-store-password
+MYAPP_RELEASE_KEY_PASSWORD=your-key-password
+
+
+Configure build.gradle
+Update android/app/build.gradle:
+
+Copy code
+android {
+    ...
+    signingConfigs {
+        release {
+            storeFile file(MYAPP_RELEASE_STORE_FILE)
+            storePassword MYAPP_RELEASE_STORE_PASSWORD
+            keyAlias MYAPP_RELEASE_KEY_ALIAS
+            keyPassword MYAPP_RELEASE_KEY_PASSWORD
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false // Disable minification if debugging is needed
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+3. Build the APK
+Run the following command in your project directory:
+
+bash
+Copy code
+cd android
+./gradlew assembleRelease
+This generates the APK at:
+
+arduino
+Copy code
+android/app/build/outputs/apk/release/app-release.apk
+4. Test the APK
+Transfer the APK file to a physical Android device and install it to ensure it works as expected.
+
+
+5. Publish Your App
+Google Play Store
+Create a Google Play Developer Account:
+
+Sign up at Google Play Console.
+Prepare Your Store Listing:
+
+Add app details, screenshots, and promotional assets.
+Upload Your APK:
+
+Navigate to "Release Management" > "App Releases".
+Select "Production Track" and upload your APK.
+Review and Publish:
